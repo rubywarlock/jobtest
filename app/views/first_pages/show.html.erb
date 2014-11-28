@@ -1,0 +1,22 @@
+<div class="info">
+<h4>FirstPages#show</h4>
+  Find me in app/views/first_pages/show.html.erb
+</div>
+
+
+<h4><%= @show_first_page.title %></h4>
+	<%= @show_first_page.text.html_safe %>
+<br/>
+<%= link_to "Edit", edit_first_page_path %>
+
+
+<ul>
+  <li><%= @show_first_page.title %></li>
+	<ul>
+	  <%= link_to "Add Second page", new_second_page_path(params[:id]), :class => "link-to-new-page" %>
+    <% @show_first_page.second_pages.each do |sp| %>
+      <li><%= link_to sp.title, second_page_path(sp.first_page_id,sp) %></li>
+    <% end %>
+	</ul>
+</ul>
+

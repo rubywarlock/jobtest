@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  pay: 1
+  stature: 1
+  weigh: 1
+
+two:
+  age: 1
+  pay: 1
+  stature: 1
+  weigh: 1

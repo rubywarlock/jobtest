@@ -1,0 +1,10 @@
+<div class="info">
+  <h4>SecondPages#edit</h4>
+  Find me in app/views/second_pages/edit.html.erb
+</div>
+
+<%= form_for @edit_second_page do |f| %>
+  <%= f.text_field :title, :value => @edit_second_page.title %><br/>
+  <%= f.text_area :text, :value => @edit_second_page.text, :class => "textarea" %><br/>
+  <%= f.submit "update" %>
+<% end %>

@@ -1,0 +1,12 @@
+<div class="info">
+  <h4>FirstPages#new</h4>
+  Find me in app/views/first_pages/new.html.erb
+</div>
+
+
+<%= form_for @new_first_page do |form| %>
+	<%= form.text_field :title %><br />
+	<%= form.text_area :text, :class => "textarea" %><br />
+
+	<%= form.submit "create first page" %>
+<% end %>

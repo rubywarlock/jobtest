@@ -1,0 +1,21 @@
+<div class="info">
+  <h4>ThirdPages#show</h4>
+  Find me in app/views/third_pages/show.html.erb<br/>
+  <%= link_to @second_page.title, second_page_path(@second_page.first_page_id,@second_page.id) %>
+</div>
+
+<h4><%= @show_third_page.title %></h4>
+<%= @show_third_page.text.html_safe %><br/>
+<%= link_to "Edit", edit_third_page_path %>
+
+<h4>Contents</h4>
+<%= link_to "Add Content", new_content_path(:third_page => params[:id]), :class => "link-to-new-page" %>
+<br/>
+<% @show_third_page.contents.each do |c| %>
+	<p>
+    <%= link_to c.title, c %><br/>
+    <%= c.text.html_safe %><br/>
+		<%= link_to "Edit", edit_content_path(c) %>
+	</p>
+  <hr>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="info">
+  <h4>Contents#edit</h4>
+  Find me in app/views/contents/edit.html.erb<br/>
+  <%= link_to "Back", @edit_content.third_page %>
+</div>
+
+<%= form_for @edit_content do |f| %>
+	<%= f.text_field :title, :value => @edit_content.title %><br/>
+  <%= f.text_area :text, :value => @edit_content.text, :class => "textarea" %><br/>
+  <%= f.submit "update" %>
+<% end %>

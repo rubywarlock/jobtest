@@ -1,0 +1,13 @@
+<div class="info">
+  <h1>SecondPages#new</h1>
+  Find me in app/views/second_pages/new.html.erb
+</div>
+
+
+<%= form_for @new_second_page do |form| %>
+	<%= form.hidden_field :first_page_id, :value => @first_page_id %>
+  <%= form.text_field :title %><br />
+  <%= form.text_area :text, :class => "textarea" %><br />
+
+  <%= form.submit "create second page" %>
+<% end %>

@@ -1,0 +1,44 @@
+<h4>Listing users</h4>
+<br/>
+<%= link_to 'Выборка', find_path %>
+
+<% flash.each do |name, msg| %>
+  <%= msg %><br/>
+<% end %>
+
+<%= will_paginate @users.paginate(page: params[:page], :per_page => 25), :previous_label => " « ", :next_label => " » " %>
+
+<table style="border-left: 1px solid #b2b2b2; border-top: 1px solid #b2b2b2;" class="users-table">
+  <thead>
+    <tr>
+      <th>Age</th>
+      <th>Pay</th>
+      <th>Stature</th>
+      <th>Weigh</th>
+      <th colspan="3">actions</th>
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+    <% @users.paginate(page: params[:page], :per_page => 25).each do |user| %>
+    <%# @users.each do |user| %>
+      <tr>
+        <td><%= user.age %></td>
+        <td><%= user.pay %></td>
+        <td><%= user.stature %></td>
+        <td><%= user.weigh %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @users.paginate(page: params[:page], :per_page => 25), :previous_label => " « ", :next_label => " » " %>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

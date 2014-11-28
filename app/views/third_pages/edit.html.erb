@@ -1,0 +1,10 @@
+<div class="info">
+  <h4>ThirdPages#edit</h4>
+  Find me in app/views/third_pages/edit.html.erb
+</div>
+
+<%= form_for @edit_third_page do |f| %>
+  <%= f.text_field :title, :value => @edit_third_page.title %><br/>
+  <%= f.text_area :text, :value => @edit_third_page.text, :class => "textarea" %><br/>
+	<%= f.submit "update" %>
+<% end %>

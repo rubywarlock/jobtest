@@ -1,0 +1,34 @@
+<div class="info">
+  <h4>HomePages#index</h4>
+  Find me in app/views/home_pages/index.html.erb
+</div>
+
+
+<% if @firstpage.count > 0 %>
+	<ul>
+		<%= link_to "add first page", new_first_page_path, :class => "link-to-new-page"  %>
+		<% @firstpage.each do |fp| %>
+			<li><%= link_to fp.title, fp, class: "link-gen-page" %></li>
+	    <li class="li-button-to-new-page"><%= link_to "Add Second page", new_second_page_path(fp.id), :class => "link-to-new-page" %></li>
+			<% if fp.second_pages.count > 0 %>
+				<ul>
+					<% fp.second_pages.each do |sp| %>
+						<li><%= link_to sp.title, second_page_path(fp.id,sp.id), class: "link-gen-page" %></li>
+				    <li class="li-button-to-new-page"><%= link_to "Add Third page", new_third_page_path(sp.id), :class => "link-to-new-page" %></li>
+						<% if sp.third_pages.count > 0 %>
+							<ul>
+							  <% sp.third_pages.each do |tp| %>
+							    <li><%= link_to tp.title, third_page_path(sp,tp), class: "link-gen-page" %></li>
+							  <% end %>
+							</ul>
+						<% end %>
+
+					<% end %>
+				</ul>
+			<% end %>
+
+		<% end %>
+	</ul>
+<% else %>
+  <%= link_to "add first page", new_first_page_path  %>
+<% end %>

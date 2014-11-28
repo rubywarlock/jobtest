@@ -1,0 +1,12 @@
+<div class="info">
+  <h4>ThirdPages#new</h4>
+  Find me in app/views/third_pages/new.html.erb
+</div>
+
+<%= form_for @new_third_page do |form| %>
+  <%= form.hidden_field :second_page_id, :value => @second_page_id %>
+  <%= form.text_field :title %><br />
+  <%= form.text_area :text, class: "textarea" %><br />
+
+  <%= form.submit "create third page" %>
+<% end %>

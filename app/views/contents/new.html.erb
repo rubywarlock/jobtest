@@ -1,0 +1,12 @@
+<div class="info">
+  <h4>Contents#new</h4>
+  Find me in app/views/contents/new.html.erb
+</div>
+
+<%= form_for @new_content do |form| %>
+  <%= form.hidden_field :third_page_id, :value => @third_page_id %>
+  <%= form.text_field :title %><br />
+  <%= form.text_area :text, class: "textarea" %><br />
+
+  <%= form.submit "create Content" %>
+<% end %>
